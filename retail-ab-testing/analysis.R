@@ -24,11 +24,11 @@ purchase_table <- table(ab_data$treatment_flg, ab_data$target)
 # Ποσοστά ανά γραμμή
 prop.table(purchase_table, margin = 1) * 100
 
+
 test_result <- prop.test(
-  x = c(63639, 60363),
-  n = c(99981, 100058),
-  alternative = "greater",
-  conf.level = 0.95
+  purchase_table[c("1", "0"), c("1", "0")], 
+  alternative = "two.sided",                
+  conf.level = 0.95                         
 )
 
 test_result
